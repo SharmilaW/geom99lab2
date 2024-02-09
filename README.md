@@ -18,8 +18,14 @@ basemap: "arcgis-topographic"
 
 But only the hill shade map is loaded in the output as we do not have access to the ArcGIS base map.
 ![Errors in Map](Error/DevelopersAPI.png)
+ 
 
 
 
 ![Erors in PointLinePolygon](Error/PointLinePolygon.png)
 
+
+
+
+The error from the console is as shown in the image.
+![Error from console](Error/ConsoleError.png)
