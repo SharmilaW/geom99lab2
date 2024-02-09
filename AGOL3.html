@@ -13,6 +13,24 @@
       width: 100%;
     }
   </style>
+  <script>
+      require(["esri/config", "esri/Map", "esri/views/MapView"], function(esriConfig, Map, MapView) {
+
+        esriConfig.apiKey = "AAPKd428b4c3f502464887372fa13874a01c5AdNgFvcLWX03_lCIh5zTL-oHvsfWDoWaOnKHkZHThdCzbE0i8m-cJAbdeESQEl-";
+
+        const map = new Map({
+          basemap: "arcgis-topographic" // basemap styles service
+        });
+
+        const view = new MapView({
+          map: map,
+          center: [-118.805, 34.027], // Longitude, latitude
+          zoom: 13, // Zoom level
+          container: "viewDiv" // Div element
+        });
+
+      });
+    </script>
 
   <!-- Load Map Components from CDN-->
   <link rel="stylesheet" href="https://js.arcgis.com/4.28/esri/themes/light/main.css">
