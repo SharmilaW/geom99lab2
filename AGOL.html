@@ -1,85 +1,77 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>Canadian Rockies Mountain Parks</title>
-  <style>
-    html, body, #viewDiv {
-      padding: 0;
-      margin: 0;
-      height: 100%;
-      width: 100%;
-    }
-    header{
-      position:fixed;
-       z-index: 2;
-      background-color:rgb(135, 206, 235);
-      text-align: center;
-       padding:0;
-       margin: 0;
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Canadian Rockies Mountain Parks</title>
+    <style>
+      html, body, #viewDiv{
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
       }
-      p{
-        text-align: justify;
-         padding:0;
-         margin: auto;
-          width: 80%;
-          padding: 8px;
+      #head{
+        height: 90px;
+        position: absolute;
+        z-index: 1;
+        left: 30%;
+        background-color: rgba(136, 191, 255, 0.247);
+        text-align: center;
       }
-  </style>
-  <link rel="stylesheet" href="https://js.arcgis.com/4.28/esri/themes/light/main.css">
-  <script src="https://js.arcgis.com/4.28/"></script>
+      </style>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.28/esri/themes/light/main.css">
+    <script src="https://js.arcgis.com/4.28/"></script>
 
-  <script>
-  require([
-    "esri/config",
-    "esri/Map",
-    "esri/views/MapView",
+    <script>
+    require([
+      "esri/config",
+      "esri/Map",
+      "esri/views/MapView",
 
-    "esri/layers/FeatureLayer"
+      "esri/layers/FeatureLayer"
 
-  ], function(esriConfig, Map, MapView, FeatureLayer) {
+    ], function(esriConfig, Map, MapView, FeatureLayer) {
 
-  //esriConfig.apiKey = "";
+    //esriConfig.apiKey = "";
 
-  const map = new Map({
-    basemap: "oceans"
-  });
+    const map = new Map({
+      basemap: "oceans"
+    });
 
-  const view = new MapView({
-    container: "viewDiv",
-    map: map,
-    center: [-117.54785295110092,52.454615104267646], 
-    zoom: 7
-  });
+    const view = new MapView({
+      container: "viewDiv",
+      map: map,
+      center: [-117.54785295110092,52.454615104267646], 
+      zoom: 7
+    });
 
-//Trailheads feature layer (points)
-  const rockiesLayer = new FeatureLayer({
-    url: "https://services1.arcgis.com/pMeXRvgWClLJZr3s/arcgis/rest/services/Canadian_Rockies_Parks/FeatureServer"
-  });
+  // feature layer (Polygon)
+    const rockiesLayer = new FeatureLayer({
+      url: "https://services1.arcgis.com/pMeXRvgWClLJZr3s/arcgis/rest/services/Canadian_Rockies_Parks/FeatureServer"
+    });
 
-  map.add(rockiesLayer);
+    map.add(rockiesLayer);
 
-//Trails feature layer (lines)
-  const ParknameLayer = new FeatureLayer({
-    url: "https://services1.arcgis.com/pMeXRvgWClLJZr3s/arcgis/rest/services/canadian_parks_name/FeatureServer"
-  });
+  // feature layer (Points)
+    const ParknameLayer = new FeatureLayer({
+      url: "https://services1.arcgis.com/pMeXRvgWClLJZr3s/arcgis/rest/services/canadian_parks_name/FeatureServer"
+    });
 
-  map.add(ParknameLayer, 1);
+    map.add(ParknameLayer, 1);
 
 
-  
-  });
-</script>
+    
+    });
+  </script>
 
-</head>
-<body>
-    <header>
-        <h1>Exploring Canadian Rockies Mountain Parks .</h1>
-        <p>The contiguous national parks of Banff, Jasper, Kootenay and Yoho, as well as the Mount Robson, Mount Assiniboine and Hamber provincial parks, studded with mountain peaks, glaciers, lakes, waterfalls, canyons and limestone caves, form a striking mountain landscape. The Burgess Shale fossil site, well known for its fossil remains of soft-bodied marine animals, is also found there.</P>
-      <!--Text source: UNESCO World Heritage Convention  https://whc.unesco.org/en/list/304/-->
-        </header>
+  </head>
+  <body>
+        <div id = "head">
+          <h1>Exploring Canadian Rockies Mountain Parks </h1>
+        </div>
+          
 
-  <div id="viewDiv"></div>
-</body>
+    <div id="viewDiv"></div>
+  </body>
 </html>
