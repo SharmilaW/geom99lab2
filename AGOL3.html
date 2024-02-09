@@ -33,7 +33,7 @@
 
   const view = new MapView({
     map: map,
-    center: [-118.80500,34.02700], //Longitude, latitude
+    center: [53.96554424705387,-120.21212363475931], //Longitude, latitude, 
     zoom: 13,
     container: "viewDiv"
  });
@@ -43,12 +43,12 @@
 
  const point = { //Create a point
     type: "point",
-    longitude: -118.80657463861,
-    latitude: 34.0005930608889
+    longitude: 51.17153972175509, 
+    latitude: -115.59157974286671
  };
  const simpleMarkerSymbol = {
     type: "simple-marker",
-    color: [226, 119, 40],  // Orange
+    color: [255, 0, 0],  // Red
     outline: {
         color: [255, 255, 255], // White
         width: 1
@@ -65,9 +65,9 @@
  const polyline = {
     type: "polyline",
     paths: [
-        [-118.821527826096, 34.0139576938577], //Longitude, latitude
-        [-118.814893761649, 34.0080602407843], //Longitude, latitude
-        [-118.808878330345, 34.0016642996246]  //Longitude, latitude
+        [51.045223562794156, -114.07487810286958], //Longitude, latitude
+        [51.5152241809989, -115.93354938996619 ], //Longitude, latitude
+        [52.93241326968365, -117.96147915566542]  //Longitude, latitude
     ]
  };
  const simpleLineSymbol = {
@@ -86,17 +86,35 @@
  const polygon = {
     type: "polygon",
     rings: [
-        [-118.818984489994, 34.0137559967283], //Longitude, latitude
-        [-118.806796597377, 34.0215816298725], //Longitude, latitude
-        [-118.791432890735, 34.0163883241613], //Longitude, latitude
-        [-118.79596686535, 34.008564864635],   //Longitude, latitude
-        [-118.808558110679, 34.0035027131376]  //Longitude, latitude
+        [48.998379716977844, -113.18122689010676], //Longitude, latitude 
+        [48.99997075224865, -116.47570001092978], //Longitude, latitude 
+        [49.76898777392272, -117.06499154802788], //Longitude, latitude 
+        [50.31006533571376, -117.88499973332702],   //Longitude, latitude 
+        [50.88068027921279, -117.97436391651452]  //Longitude, latitude 
+        [52.921331905884244, -120.82726092990404], //Longitude, latitude 
+        [55.237005961929285, -122.76024220818162], //Longitude, latitude 
+        [55.87232906119996, -123.88764104192167], //Longitude, latitude 
+        [58.68879108515901, -126.88823594265173],   //Longitude, latitude
+        [59.21533393089968, -127.19440754443714]  //Longitude, latitude 
+        [59.27503117303436, -125.03301060312212]   // Longitude, latitude
+        [59.597662372995686, -126.52806609743011]  //Longitude, latitude                                                    
+        [59.7105770419152, -124.56523473049808] //Longitude, latitude
+        [59.0874687810279, -123.32652528466203] //Longitude, latitude
+        [57.87262565666908, -121.75426141789566]    //Longitude, latitude
+        [56.6182311887624, -121.53599936363997] //Longitude, latitude
+        [54.690618538101035, -119.23027368931847]   //Longitude, latitude
+        [52.99725866033583, -116.92839288965568]    //Longitude, latitude
+        [52.71948808764526, -115.92296082783233]    //Longitude, latitude
+        [52.163824727226896, -115.155689047154] //Longitude, latitude
+        [51.344366790873416, -115.04912241824124]   //Longitude, latitude
+        [48.998379716977844, -113.18122689010676]   //Longitude, latitude
     ]
+    
  };
 
  const simpleFillSymbol = {
     type: "simple-fill",
-    color: [227, 139, 79, 0.8],  // Orange, opacity 80%
+    color: [154, 205, 50, 0.8],  // green, opacity 80%
     outline: {
         color: [255, 255, 255],
         width: 1
@@ -109,7 +127,7 @@
  }
  const attributes = {
     Name: "Graphic",
-    Description: "I am a polygon"
+    Description: "Canadian Rockies"
  }
 
  const polygonGraphic = new Graphic({
