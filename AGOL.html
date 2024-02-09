@@ -1,8 +1,9 @@
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>ArcGIS Maps SDK for JavaScript Tutorials: Add a feature layer</title>
+  <title>Canadian Rockies Mountain Parks</title>
   <style>
     html, body, #viewDiv {
       padding: 0;
@@ -10,6 +11,21 @@
       height: 100%;
       width: 100%;
     }
+    header{
+      position:fixed;
+       z-index: 2;
+      background-color:rgb(135, 206, 235);
+      text-align: center;
+       padding:0;
+       margin: 0;
+      }
+      p{
+        text-align: justify;
+         padding:0;
+         margin: auto;
+          width: 80%;
+          padding: 8px;
+      }
   </style>
   <link rel="stylesheet" href="https://js.arcgis.com/4.28/esri/themes/light/main.css">
   <script src="https://js.arcgis.com/4.28/"></script>
@@ -24,45 +40,46 @@
 
   ], function(esriConfig, Map, MapView, FeatureLayer) {
 
-  esriConfig.apiKey = "AAPKd428b4c3f502464887372fa13874a01c5AdNgFvcLWX03_lCIh5zTL-oHvsfWDoWaOnKHkZHThdCzbE0i8m-cJAbdeESQEl-";
+  //esriConfig.apiKey = "";
 
   const map = new Map({
-    basemap: "arcgis-OpenStreetMap"
+    basemap: "oceans"
   });
 
   const view = new MapView({
     container: "viewDiv",
     map: map,
-    center: [43.7185139070428,-79.33885949261312],
-    zoom: 13
+    center: [-117.54785295110092,52.454615104267646], 
+    zoom: 7
   });
 
 //Trailheads feature layer (points)
-  const trailheadsLayer = new FeatureLayer({
-    url: "https://services1.arcgis.com/pMeXRvgWClLJZr3s/ArcGIS/rest/services/shwaglTop20_Toronto_Parking_Tickets_in_2016/FeatureServer"
+  const rockiesLayer = new FeatureLayer({
+    url: "https://services1.arcgis.com/pMeXRvgWClLJZr3s/arcgis/rest/services/Canadian_Rockies_Parks/FeatureServer"
   });
 
-  map.add(trailheadsLayer);
+  map.add(rockiesLayer);
 
 //Trails feature layer (lines)
-  const trailsLayer = new FeatureLayer({
-    url: "https://fleming.maps.arcgis.com/apps/mapviewer/index.html?layers=0d165ed8493847a097acb20685849863"
+  const ParknameLayer = new FeatureLayer({
+    url: "https://services1.arcgis.com/pMeXRvgWClLJZr3s/arcgis/rest/services/canadian_parks_name/FeatureServer"
   });
 
-  map.add(trailsLayer, 0);
+  map.add(ParknameLayer, 1);
 
-// Parks and open spaces (polygons)
-  const parksLayer = new FeatureLayer({
-    url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Parks_and_Open_Space/FeatureServer/0"
-  });
 
-  map.add(parksLayer, 0);
-
+  
   });
 </script>
 
 </head>
 <body>
+    <header>
+        <h1>Exploring Canadian Rockies Mountain Parks .</h1>
+        <p>The contiguous national parks of Banff, Jasper, Kootenay and Yoho, as well as the Mount Robson, Mount Assiniboine and Hamber provincial parks, studded with mountain peaks, glaciers, lakes, waterfalls, canyons and limestone caves, form a striking mountain landscape. The Burgess Shale fossil site, well known for its fossil remains of soft-bodied marine animals, is also found there.</P>
+      <!--Text source: UNESCO World Heritage Convention  https://whc.unesco.org/en/list/304/-->
+        </header>
+
   <div id="viewDiv"></div>
 </body>
 </html>
